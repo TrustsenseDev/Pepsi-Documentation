@@ -1,3 +1,5 @@
+local Module = {}
+
 -- Function 
 function webhook(hook, color, title, description)
     pcall(function()
@@ -22,8 +24,6 @@ function webhook(hook, color, title, description)
 end
 
 -- User Interface
-local Module = {}
-
 function Module:CreateWindow(Url)
     local BugReporter = Instance.new('ScreenGui')
     local Holder = Instance.new('Frame')
@@ -98,3 +98,5 @@ function Module:CreateWindow(Url)
     UICorner_3.CornerRadius = UDim.new(0, 3)
     UICorner_3.Parent = Holder
 end
+
+return Module
