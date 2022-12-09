@@ -6,6 +6,7 @@ The UI Library:
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)("Pepsi's UI Library") -- Pepsi's very cool library
 local Libraryflags = Library.flags -- a variable for the library's flags
 local Wait = Library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
+-- you can use setclipboard(game:GetObjects("rbxassetid://7657867786")[1].Source) to check library source for more documentation!
 
 -- Window Element
 local Window = Library:CreateWindow({
@@ -44,7 +45,7 @@ local Toggle = Section:AddToggle({
 	Locked = true, -- Default is false
 	Keybind = { Flag = 'keybind', Mode = 'Hold', Value = Enum.KeyCode.F}, -- Change to any bind you want, mode can be "Dynamic" or "Hold" or "Toggle", Toggle is default.
 
-	Callback = function( state )
+	Callback = function( state ) -- Optional
 		if ( state ) then
 			print('On')
 		else
@@ -53,6 +54,22 @@ local Toggle = Section:AddToggle({
 	end
 })
 print(Libraryflags.keybind) -- Output: Enum.KeyCode.F
+
+Label:Set(false) -- Set value, RawSet - sets the flag without firing the callback
+Label:Reset() -- Resets do default
+Label:Get() -- Gets current value
+
+-- Textbox Element
+local TextBox = Section:AddTextbox({
+	Name = 'Pro text box',
+	Flag = "pro_flag", -- flag flag flag
+	Value = "Obama",
+	Multiline = true, -- default is false
+	--[[CustomProperties = {
+		TextTruncate = Enum.TextTruncate.None
+	}]] -- If you find any utility to this you cool!
+})
+print(Libraryflags.pro_flag) -- Output: Obama
 
 Label:Set(false) -- Set value, RawSet - sets the flag without firing the callback
 Label:Reset() -- Resets do default
