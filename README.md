@@ -2,10 +2,6 @@
 
 The UI Library:
 ```lua
---discord.gg/boronide, code generated using luamin.js™
-
-
-
 -- Pepsi's UI Library
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)("Pepsi's UI Library") -- Pepsi's very cool library
 local Libraryflags = Library.flags -- a variable for the library's flags
