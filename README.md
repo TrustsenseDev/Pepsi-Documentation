@@ -87,7 +87,7 @@ local Slider = Section:AddSlider({
 	Max = 1000,
 	Decimals = 2, -- 13.00
 	llegalInput = false, -- true allow textbox to break min & max limits
-	Callback = function(x, y) -- Optional again, all callback are optinal...
+	Callback = function(x, y) -- Optional again, all callbacks are optinal...
 		if ( x ) then
 			print(y)
 		end
@@ -100,4 +100,14 @@ Slider:Get() -- Gets current value
 -- Slider:SetConstraints(11, 16) New min & max
 -- Slider:SetMin(0) -- new min
 -- Slider:SetMax(1200) -- new max
+
+-- Button Element
+local Button = Section:AddButton({
+	Name = "Pro button",
+	-- Locked = true, lock the button until Button:Unlock()
+	-- Condition = Function (NumPresses) // Will only allow the button to be pressed, if this function returns true
+	Callback = function()
+		print("Pro button right here buddy!")
+	end
+})
 ```
