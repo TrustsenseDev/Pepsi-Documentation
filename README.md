@@ -6,7 +6,7 @@ The UI Library:
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)("Pepsi's UI Library") -- Pepsi's very cool library
 local Libraryflags = Library.flags -- a variable for the library's flags
 local Wait = Library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
--- you can use setclipboard(game:GetObjects("rbxassetid://7657867786")[1].Source) to check library source for more documentation!
+-- You can use | setclipboard(game:GetObjects("rbxassetid://7657867786")[1].Source) | to check library source for more documentation!
 
 -- Window Element
 local Window = Library:CreateWindow({
@@ -55,9 +55,9 @@ local Toggle = Section:AddToggle({
 })
 print(Libraryflags.keybind) -- Output: Enum.KeyCode.F
 
-Label:Set(false) -- Set value, RawSet - sets the flag without firing the callback
-Label:Reset() -- Resets do default
-Label:Get() -- Gets current value
+Toggle:Set(false) -- Set value, RawSet - sets the flag without firing the callback
+Toggle:Reset() -- Resets do default
+Toggle:Get() -- Gets current value
 
 -- Textbox Element
 local TextBox = Section:AddTextbox({
@@ -68,11 +68,36 @@ local TextBox = Section:AddTextbox({
 	--[[CustomProperties = {
 		TextTruncate = Enum.TextTruncate.None
 	}]] -- If you find any utility to this you cool!
+	Callback = function( x ) -- Optional
+		print(x)
+	end
 })
 print(Libraryflags.pro_flag) -- Output: Obama
 
-Label:Set(false) -- Set value, RawSet - sets the flag without firing the callback
-Label:Reset() -- Resets do default
-Label:Get() -- Gets current value
-```
+TextBox:Set("Noob") -- Set value, RawSet - sets the flag without firing the callback
+TextBox:Reset() -- Resets do default
+TextBox:Get() -- Gets current value
 
+-- Slider Element
+local Slider = Section:AddSlider({
+	Name = 'Pro slider',
+	Flag = "slide_in_your_DMs", -- hi hi ha,
+	Value = 13,
+	Min = 0, -- 0 is a lie btw, also very scary
+	Max = 1000,
+	Decimals = 2, -- 13.00
+	llegalInput = false, -- true allow textbox to break min & max limits
+	Callback = function(x, y) -- Optional again, all callback are optinal...
+		if ( x ) then
+			print(y)
+		end
+	end
+})
+
+Slider:Set(15) -- Set value, RawSet - sets the flag without firing the callback
+Slider:Reset() -- Resets do default
+Slider:Get() -- Gets current value
+-- Slider:SetConstraints(11, 16) New min & max
+-- Slider:SetMin(0) -- new min
+-- Slider:SetMax(1200) -- new max
+```
