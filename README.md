@@ -7,6 +7,7 @@ local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)
 local Libraryflags = Library.flags -- a variable for the library's flags
 local Wait = Library.subs.Wait -- Only returns if the GUI has not been terminated. For 'while Wait() do' loops
 -- You can use | setclipboard(game:GetObjects("rbxassetid://7657867786")[1].Source) | to check library source for more documentation!
+local player = Library.LP -- Get the local player EZZ
 
 -- Window Element
 local Window = Library:CreateWindow({
@@ -130,14 +131,65 @@ Keybind:Get() -- Gets current value
 local Dropdown = Section:AddDropdown({
 	Name = 'Pro dropdown',
 	Flag = "selected value", -- brrrr
+	Multi = true, -- Default is false
 	List = {"Apple", "Apple1", "Orange"}, -- Table | workspace | Enum.Font | Function ()
 	Callback = function( WAH )
 		print(WAH)
 	end
 })
 
-Keybind:Set("Orange") -- Set value, RawSet - sets the flag without firing the callback
-Keybind:Reset() -- Resets do default
-Keybind:Get() -- Gets current value
+Dropdown:Set() -- Set value, RawSet - sets the flag without firing the callback
+Dropdown:Reset() -- Resets do default
+Dropdown:Get() -- Gets current value
 -- new list Keybind:UpdateList({})
+
+-- SearchBox Element
+local SearchBox = Section:AddSearchBox({ -- Uh for that I won't create an example, it's basically dropdown but with search bar
+	Name = "pro",
+	flag = "more pro",
+	List = {1, 2, 3}
+})
+
+-- Color Picker Element
+local ColorPicker = Section:AddColorPicker({
+	Name = "Color Picker",
+	Value = Color3.new(0.619607, 0.168627, 0.168627), -- "rainbow" or "random" | Color3.new()
+	Callback = function( color )
+		print(color)
+	end
+})
+
+ColorPicker:Set(Color3.new(0.2, 0.435294, 0.705882)) -- Set value, RawSet - sets the flag without firing the callback
+ColorPicker:Reset() -- Resets do default
+ColorPicker:Get() -- Gets current value
+
+Library.Notify({
+	Text = "OOOO",
+	Duration = 2 -- Default is 5
+})
+
+Library.Prompt({
+	Name = "Would you like to join Pepsi?",
+    Text = "Ok - Very Pro, No - Very Noob",
+	Buttons = {
+		Yes = function()
+			local req = (syn and syn.request) or (http and http.request) or http_request or nil
+			if req ~= nil then
+				for port = 6463, 6472, 1 do
+					local inv = 'http://127.0.0.1:' .. tostring(port) .. '/rpc?v=1'
+					local http = game:GetService('HttpService')
+					local t = { cmd = 'INVITE_BROWSER', args = { ['code'] = 'VzYTJ7Y' }, nonce = string.lower(http:GenerateGUID(false)) }
+					local post = http:JSONEncode(t)
+					req({ Url = inv, Method = 'POST', Body = post, Headers = { ['Content-Type'] = 'application/json', ['Origin'] = 'https://discord.com' } })
+				end
+			end
+		end,
+		No = function()
+			Library.Notify({
+				Text = "You are a NOOB!",
+				Duration = 6
+			})
+		end
+	}
+})
 ```
