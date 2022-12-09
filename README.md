@@ -41,9 +41,9 @@ local Toggle = Section:AddToggle({
 	Name = 'Autofarm',
 	Value = true, -- Default is false
 	Flag = 'autofarm',
-	Locked = false, -- Default is false
-	Keybind = { Flag = 'keybind', Value = Enum.KeyCode.F}, -- Change to any bind you want
-	Mode = 'Hold', -- Can be "Dynamic" or "Hold" or "Toggle", Toggle is default.
+	Locked = true, -- Default is false
+	Keybind = { Flag = 'keybind', Mode = 'Hold', Value = Enum.KeyCode.F}, -- Change to any bind you want, mode can be "Dynamic" or "Hold" or "Toggle", Toggle is default.
+
 	Callback = function( state )
 		if ( state ) then
 			print('On')
@@ -53,5 +53,9 @@ local Toggle = Section:AddToggle({
 	end
 })
 print(Libraryflags.keybind) -- Output: Enum.KeyCode.F
+
+Label:Set(false) -- Set value, RawSet - sets the flag without firing the callback
+Label:Reset() -- Resets do default
+Label:Get() -- Gets current value
 ```
 
