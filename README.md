@@ -79,7 +79,7 @@ TextBox:Reset() -- Resets do default
 TextBox:Get() -- Gets current value
 
 -- Slider Element
-local Slider = Section:AddSlider({
+local Slider = Section:AddSlider({ -- You can also use it on Toggle instead of Section!
 	Name = 'Pro slider',
 	Flag = "slide_in_your_DMs", -- hi hi ha,
 	Value = 13,
@@ -110,4 +110,34 @@ local Button = Section:AddButton({
 		print("Pro button right here buddy!")
 	end
 })
+
+-- Keybind Element
+local Keybind = Section:AddKeybind({
+	Name = 'Pro keybind',
+	Flag = "the key to open your heart", -- mrrr
+	Callback = function( hihiha )
+		if ( hihiha ) then
+			print('Pepsi greatest drink of all time!')
+		end
+	end
+})
+
+Keybind:Set(Enum.KeyCode.A) -- Set value, RawSet - sets the flag without firing the callback
+Keybind:Reset() -- Resets do default
+Keybind:Get() -- Gets current value
+
+-- Dropdown Element
+local Dropdown = Section:AddDropdown({
+	Name = 'Pro dropdown',
+	Flag = "selected value", -- brrrr
+	List = {"Apple", "Apple1", "Orange"}, -- Table | workspace | Enum.Font | Function ()
+	Callback = function( WAH )
+		print(WAH)
+	end
+})
+
+Keybind:Set("Orange") -- Set value, RawSet - sets the flag without firing the callback
+Keybind:Reset() -- Resets do default
+Keybind:Get() -- Gets current value
+-- new list Keybind:UpdateList({})
 ```
