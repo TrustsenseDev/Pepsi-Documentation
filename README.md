@@ -2,6 +2,10 @@
 
 The UI Library:
 ```lua
+--discord.gg/boronide, code generated using luamin.js™
+
+
+
 -- Pepsi's UI Library
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)("Pepsi's UI Library") -- Pepsi's very cool library
 local Libraryflags = Library.flags -- a variable for the library's flags
@@ -44,7 +48,11 @@ local Toggle = Section:AddToggle({
 	Value = true, -- Default is false
 	Flag = 'autofarm',
 	Locked = true, -- Default is false
-	Keybind = { Flag = 'keybind', Mode = 'Hold', Value = Enum.KeyCode.F}, -- Change to any bind you want, mode can be "Dynamic" or "Hold" or "Toggle", Toggle is default.
+	Keybind = {
+		Flag = 'keybind',
+		Mode = 'Hold',
+		Value = Enum.KeyCode.F
+	}, -- Change to any bind you want, mode can be "Dynamic" or "Hold" or "Toggle", Toggle is default.
 
 	Callback = function( state ) -- Optional
 		if ( state ) then
@@ -65,10 +73,7 @@ local TextBox = Section:AddTextbox({
 	Name = 'Pro text box',
 	Flag = "pro_flag", -- flag flag flag
 	Value = "Obama",
-	Multiline = true, -- default is false
-	--[[CustomProperties = {
-		TextTruncate = Enum.TextTruncate.None
-	}]] -- If you find any utility to this you cool!
+	Multiline = true, -- If you find any utility to this you cool!
 	Callback = function( x ) -- Optional
 		print(x)
 	end
@@ -132,7 +137,11 @@ local Dropdown = Section:AddDropdown({
 	Name = 'Pro dropdown',
 	Flag = "selected value", -- brrrr
 	Multi = true, -- Default is false
-	List = {"Apple", "Apple1", "Orange"}, -- Table | workspace | Enum.Font | Function ()
+	List = {
+		"Apple",
+		"Apple1",
+		"Orange"
+	}, -- Table | workspace | Enum.Font | Function ()
 	Callback = function( WAH )
 		print(WAH)
 	end
@@ -147,7 +156,11 @@ Dropdown:Get() -- Gets current value
 local SearchBox = Section:AddSearchBox({ -- Uh for that I won't create an example, it's basically dropdown but with search bar
 	Name = "pro",
 	flag = "more pro",
-	List = {1, 2, 3}
+	List = {
+		1,
+		2,
+		3
+	}
 })
 
 -- Color Picker Element
@@ -170,7 +183,7 @@ Library.Notify({
 
 Library.Prompt({
 	Name = "Would you like to join Pepsi?",
-    Text = "Ok - Very Pro, No - Very Noob",
+	Text = "Ok - Very Pro, No - Very Noob",
 	Buttons = {
 		Yes = function()
 			local req = (syn and syn.request) or (http and http.request) or http_request or nil
@@ -178,9 +191,23 @@ Library.Prompt({
 				for port = 6463, 6472, 1 do
 					local inv = 'http://127.0.0.1:' .. tostring(port) .. '/rpc?v=1'
 					local http = game:GetService('HttpService')
-					local t = { cmd = 'INVITE_BROWSER', args = { ['code'] = 'VzYTJ7Y' }, nonce = string.lower(http:GenerateGUID(false)) }
+					local t = {
+						cmd = 'INVITE_BROWSER',
+						args = {
+							['code'] = 'VzYTJ7Y'
+						},
+						nonce = string.lower(http:GenerateGUID(false))
+					}
 					local post = http:JSONEncode(t)
-					req({ Url = inv, Method = 'POST', Body = post, Headers = { ['Content-Type'] = 'application/json', ['Origin'] = 'https://discord.com' } })
+					req({
+						Url = inv,
+						Method = 'POST',
+						Body = post,
+						Headers = {
+							['Content-Type'] = 'application/json',
+							['Origin'] = 'https://discord.com'
+						}
+					})
 				end
 			end
 		end,
