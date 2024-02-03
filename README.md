@@ -1,4 +1,3 @@
-```markdown
 # Pepsi's UI Library
 
 Pepsi's very cool library
@@ -210,5 +209,4 @@ Library.Prompt({
         end
     }
 })
-```
 ```
