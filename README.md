@@ -252,4 +252,13 @@ Library.Prompt({
 	}
 })
 ```
+
+## Contributing
+
+If you'd like to contribute to Pepsi's UI Library, please [contact us](mailto:your-email@example.com).
+
+## License
+
+Pepsi's UI Library is licensed under the [MIT License](LICENSE).
 ```
+Please replace `mailto:your-email@example.com` and `[MIT License](LICENSE)` with your actual email and license link.
