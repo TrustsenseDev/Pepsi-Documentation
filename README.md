@@ -1,37 +1,44 @@
-Sure, here's a more organized version of the documentation for Pepsi's UI Library that would work well with GitHub's README.md:
+Sure, here's a basic structure for a `README.md` file for Pepsi's UI Library:
 
 ```markdown
-# Pepsi's UI Library Documentation
+# Pepsi's UI Library
 
-This is a comprehensive guide to using Pepsi's UI Library in Roblox. The library provides a robust and flexible way to create user interfaces in your Roblox games.
+Pepsi's UI Library is a powerful and flexible library for creating user interfaces in Roblox. This library provides a variety of UI elements that can be easily customized to fit your needs.
 
 ## Table of Contents
-- [Getting Started](#getting-started)
-- [Window Element](#window-element)
-- [Tab Element](#tab-element)
-- [Section Element](#section-element)
-- [Label Element](#label-element)
-- [Toggle Element](#toggle-element)
-- [Textbox Element](#textbox-element)
-- [Slider Element](#slider-element)
-- [Button Element](#button-element)
-- [Keybind Element](#keybind-element)
-- [Dropdown Element](#dropdown-element)
-- [SearchBox Element](#searchbox-element)
-- [Color Picker Element](#color-picker-element)
 
-## Getting Started
-To start using the library, load it into your game using the following code:
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Window Element](#window-element)
+  - [Tab Element](#tab-element)
+  - [Section Element](#section-element)
+  - [Label Element](#label-element)
+  - [Toggle Element](#toggle-element)
+  - [Textbox Element](#textbox-element)
+  - [Slider Element](#slider-element)
+  - [Button Element](#button-element)
+  - [Keybind Element](#keybind-element)
+  - [Dropdown Element](#dropdown-element)
+  - [SearchBox Element](#searchbox-element)
+  - [Color Picker Element](#color-picker-element)
+- [Notifications](#notifications)
+- [Prompts](#prompts)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+To install the library, use the following code:
 
 ```lua
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)("Pepsi's UI Library")
-local Libraryflags = Library.flags
-local Wait = Library.subs.Wait
-local player = Library.LP
 ```
 
-## Window Element
-The Window element is the main container for your UI. Here's how to create a Window:
+## Usage
+
+### Window Element
+
+The Window element is the main container for your UI. You can customize its name, theme, and more.
 
 ```lua
 local Window = Library:CreateWindow({
@@ -44,8 +51,9 @@ local Window = Library:CreateWindow({
 })
 ```
 
-## Tab Element
-Tabs help organize your UI into different sections. Here's how to create a Tab:
+### Tab Element
+
+Tabs allow you to organize your UI into separate sections.
 
 ```lua
 local GeneralTab = Window:CreateTab({
@@ -53,8 +61,9 @@ local GeneralTab = Window:CreateTab({
 })
 ```
 
-## Section Element
-Sections further divide your Tabs into smaller parts. Here's how to create a Section:
+### Section Element
+
+Sections are used to group related UI elements.
 
 ```lua
 local Section = GeneralTab:CreateSection({
@@ -63,20 +72,19 @@ local Section = GeneralTab:CreateSection({
 })
 ```
 
-## Label Element
-Labels are used to display text. Here's how to create and manipulate a Label:
+### Label Element
+
+Labels are used to display text.
 
 ```lua
 local Label = Section:CreateLabel({
 	Text = 'Label'
 })
-Label:SetText('New Text WII')
-Label:Reset()
-Label:Get()
 ```
 
-## Toggle Element
-Toggles are used to switch between two states. Here's how to create and manipulate a Toggle:
+### Toggle Element
+
+Toggles are used to switch between two states.
 
 ```lua
 local Toggle = Section:AddToggle({
@@ -97,13 +105,11 @@ local Toggle = Section:AddToggle({
 		end
 	end
 })
-Toggle:Set(false)
-Toggle:Reset()
-Toggle:Get()
 ```
 
-## Textbox Element
-Textboxes are used to input text. Here's how to create and manipulate a Textbox:
+### Textbox Element
+
+Textboxes allow users to input text.
 
 ```lua
 local TextBox = Section:AddTextbox({
@@ -115,13 +121,11 @@ local TextBox = Section:AddTextbox({
 		print(x)
 	end
 })
-TextBox:Set("Noob")
-TextBox:Reset()
-TextBox:Get()
 ```
 
-## Slider Element
-Sliders are used to select a value from a range. Here's how to create and manipulate a Slider:
+### Slider Element
+
+Sliders allow users to select a value from a range.
 
 ```lua
 local Slider = Section:AddSlider({
@@ -131,20 +135,18 @@ local Slider = Section:AddSlider({
 	Min = 0,
 	Max = 1000,
 	Decimals = 2,
-	llegalInput = false,
+	IllegalInput = false,
 	Callback = function(x, y)
 		if ( x ) then
 			print(y)
 		end
 	end
 })
-Slider:Set(15)
-Slider:Reset()
-Slider:Get()
 ```
 
-## Button Element
-Buttons are used to trigger actions. Here's how to create a Button:
+### Button Element
+
+Buttons can be used to trigger actions.
 
 ```lua
 local Button = Section:AddButton({
@@ -155,8 +157,9 @@ local Button = Section:AddButton({
 })
 ```
 
-## Keybind Element
-Keybinds are used to bind actions to keys. Here's how to create and manipulate a Keybind:
+### Keybind Element
+
+Keybinds allow users to bind actions to keys.
 
 ```lua
 local Keybind = Section:AddKeybind({
@@ -168,13 +171,11 @@ local Keybind = Section:AddKeybind({
 		end
 	end
 })
-Keybind:Set(Enum.KeyCode.A)
-Keybind:Reset()
-Keybind:Get()
 ```
 
-## Dropdown Element
-Dropdowns are used to select a value from a list. Here's how to create and manipulate a Dropdown:
+### Dropdown Element
+
+Dropdowns allow users to select an option from a list.
 
 ```lua
 local Dropdown = Section:AddDropdown({
@@ -190,13 +191,11 @@ local Dropdown = Section:AddDropdown({
 		print(WAH)
 	end
 })
-Dropdown:Set()
-Dropdown:Reset()
-Dropdown:Get()
 ```
 
-## SearchBox Element
-SearchBoxes are used to search a list of values. Here's how to create a SearchBox:
+### SearchBox Element
+
+SearchBoxes allow users to search through a list of options.
 
 ```lua
 local SearchBox = Section:AddSearchBox({
@@ -210,8 +209,9 @@ local SearchBox = Section:AddSearchBox({
 })
 ```
 
-## Color Picker Element
-Color Pickers are used to select a color. Here's how to create and manipulate a Color Picker:
+### Color Picker Element
+
+Color Pickers allow users to select a color.
 
 ```lua
 local ColorPicker = Section:AddColorPicker({
@@ -221,7 +221,34 @@ local ColorPicker = Section:AddColorPicker({
 		print(color)
 	end
 })
-ColorPicker:Set(Color3.new(0.2, 0.435294, 0.705882))
-ColorPicker:Reset()
-ColorPicker:Get()
+```
+
+## Notifications
+
+You can send notifications to the user with the `Notify` function.
+
+```lua
+Library.Notify({
+	Text = "OOOO",
+	Duration = 2
+})
+```
+
+## Prompts
+
+You can prompt the user with a question using the `Prompt` function.
+
+```lua
+Library.Prompt({
+	Name = "Would you like to join Pepsi?",
+	Text = "Ok - Very Pro, No - Very Noob",
+	Buttons = {
+		Yes = function()
+			-- Code for when the user clicks "Yes"
+		end,
+		No = function()
+			-- Code for when the user clicks "No"
+		end
+	}
+})
 ```
