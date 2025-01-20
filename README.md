@@ -16,7 +16,6 @@ A refreshing 🧊 Roblox UI framework with modern features and smooth interactio
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Roblox Studio
 - Basic Lua knowledge
 
 ### Installation
@@ -29,7 +28,7 @@ local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)
 | Component      | Description                          | Example                      |
 |----------------|--------------------------------------|------------------------------|
 | **Window**     | Main container for UI elements       | `CreateWindow({...})`        |
-| **Smart Tabs** | Organized content sections           | 3 tabs with icons            |
+| **Smart Tabs** | Organized content sections           | tabs with icons            |
 | **Color Picker** | HSV/RGB color selection             | ![Color Picker Demo]         |
 | **Search Box** | Filterable dropdown with typeahead   | Search from 1000+ items      |
 
