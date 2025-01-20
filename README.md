@@ -1,7 +1,6 @@
 # 🥤 Pepsi UI Library <sub><sup>v2.1.0</sup></sub>
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Discord](https://img.shields.io/discord/596154600495513620?label=Discord)
 
 A refreshing 🧊 Roblox UI framework with modern features and smooth interactions. Perfect for creating beautiful in-game interfaces!
 
