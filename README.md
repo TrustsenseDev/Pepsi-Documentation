@@ -75,18 +75,6 @@ Section:AddToggle({
 })
 ```
 
-### 🎨 Theme Customization Guide
-Create your own theme JSON using our [online theme builder](https://pepsi-theme-builder.com) or modify directly:
-
-```json
-{
-  "__Designer.Colors.main": "#4dbed9",
-  "__Designer.Colors.background": "#2f3542",
-  "__Designer.Fonts.header": "Gotham Bold",
-  "__Designer.Sizes.element_padding": "12"
-}
-```
-
 ## 🛠️ Advanced Usage
 
 ```lua
