@@ -102,21 +102,6 @@ aimSection:AddDropdown({
 })
 ```
 
-## 🌈 Theme Showcase
-
-| Default Theme | Dark Mode | Cyberpunk |
-|---------------|-----------|-----------|
-| ![Default]    | ![Dark]   | ![Cyber]  |
-
-## 🤝 Contributing
-
-We welcome contributions! Please read our [contribution guidelines](CONTRIBUTING.md) and:
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📞 Support
 
 For help, join our [Discord community](https://discord.gg/VzYTJ7Y) or create an [GitHub issue](https://github.com/username/repo/issues).
