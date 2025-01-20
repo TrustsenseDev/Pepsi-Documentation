@@ -1,113 +1,277 @@
-# 🥤 Pepsi UI Library <sub><sup>v2.1.0</sup></sub>
+# Pepsi's UI Library
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+A powerful and customizable UI library for Roblox experiences.
 
-A refreshing 🧊 Roblox UI framework with modern features and smooth interactions. Perfect for creating beautiful in-game interfaces!
+## Table of Contents
 
-## ✨ Features
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [UI Elements](#ui-elements)
+  - [Window](#window)
+  - [Tab](#tab)
+  - [Section](#section)
+  - [Label](#label)
+  - [Toggle](#toggle)
+  - [Textbox](#textbox)
+  - [Slider](#slider)
+  - [Button](#button)
+  - [Keybind](#keybind)
+  - [Dropdown](#dropdown)
+  - [SearchBox](#searchbox)
+  - [Color Picker](#color-picker)
+- [Utility Functions](#utility-functions)
+  - [Notify](#notify)
+  - [Prompt](#prompt)
 
-- 🎛️ **Fully Customizable** - Theme engine with JSON configuration
-- 🔑 **Keybind Support** with multiple modes
-- 📱 **Responsive Layout** system
-- 📦 **Modular Components** - Use only what you need
-- 🔔 **Notification System** with progress indicators
-- 📝 **Interactive Documentation** (you're here!)
+## Installation
 
-## 🚀 Getting Started
+Add the library to your project using:
 
-### Prerequisites
-- Basic Lua knowledge
-
-### Installation
 ```lua
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)("Pepsi's UI Library")
 ```
 
-## 🖼️ UI Components
+## Quick Start
 
-| Component      | Description                          | Example                      |
-|----------------|--------------------------------------|------------------------------|
-| **Window**     | Main container for UI elements       | `CreateWindow({...})`        |
-| **Smart Tabs** | Organized content sections           | tabs with icons            |
-| **Color Picker** | HSV/RGB color selection             | ![Color Picker Demo]         |
-| **Search Box** | Filterable dropdown with typeahead   | Search from 1000+ items      |
+```lua
+-- Create main window
+local Window = Library:CreateWindow({
+    Name = 'Pepsi Library',
+    Themeable = {
+        Info = 'Discord Server: VzYTJ7Y',
+        Credit = true, -- Shows library credits
+    },
+    DefaultTheme = shared.themename or '{"__Designer.Colors.main":"4dbed9"}'
+})
 
-[Color Picker Demo]: https://via.placeholder.com/200x100.png?text=Color+Picker+Preview
+-- Create tab and section
+local GeneralTab = Window:CreateTab({Name = 'General'})
+local MainSection = GeneralTab:CreateSection({
+    Name = 'Main Controls',
+    Side = 'Left'
+})
 
-## 📚 Comprehensive Documentation
+-- Add a toggle with keybind
+MainSection:AddToggle({
+    Name = 'Auto-Farm',
+    Value = false,
+    Flag = 'auto_farm',
+    Keybind = {
+        Flag = 'farm_keybind',
+        Mode = 'Toggle',
+        Value = Enum.KeyCode.F
+    },
+    Callback = function(state)
+        print('Auto-Farm:', state and 'ON' or 'OFF')
+    end
+})
+```
 
-### 🔧 Core Components
+## UI Elements
 
-<details>
-<summary><strong>🏗️ Window Configuration</strong></summary>
+### Window
+The root container for all UI elements.
 
 ```lua
 local Window = Library:CreateWindow({
-    Name = 'Dashboard',
-    Themeable = {
-        Info = 'Customize me!',
-        Credit = true -- Show library credits
+    Name = 'Title',          -- Window title
+    Themeable = {            -- Theme configuration
+        Info = 'Extra text', 
+        Credit = true       -- Show/hide credits
     },
-    DefaultTheme = [[
-    {
-        "__Designer.Colors.main": "#4dbed9",
-        "__Designer.Colors.accent": "#ff4757"
-    }
-    ]]
+    DefaultTheme = 'theme'  -- JSON theme string
 })
 ```
-</details>
 
-### 🎮 Interactive Elements
+### Tab
+Organize content into separate pages.
 
-#### 🔘 Smart Toggle with Keybinds
 ```lua
-Section:AddToggle({
-    Name = 'God Mode',
-    Flag = 'hacks_godmode',
-    Keybind = {
-        Mode = 'Toggle',
-        Value = Enum.KeyCode.G
+local MyTab = Window:CreateTab({Name = 'Settings'})
+```
+
+### Section
+Group related controls within a tab.
+
+```lua
+local ControlsSection = MyTab:CreateSection({
+    Name = 'Configuration',
+    Side = 'Right'  -- 'Left' or 'Right'
+})
+```
+
+### Label
+Display static text.
+
+```lua
+ControlsSection:CreateLabel({Text = 'Status: Active'})
+```
+
+### Toggle
+Boolean switch with optional keybind.
+
+```lua
+ControlsSection:AddToggle({
+    Name = 'Enable Feature',
+    Value = false,          -- Default state
+    Flag = 'feature_toggle', -- Unique identifier
+    Locked = false,         -- Prevent user changes
+    Keybind = {             -- Optional keybind
+        Flag = 'feature_key',
+        Mode = 'Toggle',    -- 'Toggle' or 'Hold'
+        Value = Enum.KeyCode.X
     },
     Callback = function(state)
-        Player:SetAttribute('GodMode', state)
+        -- Handle toggle changes
     end
 })
 ```
 
-## 🛠️ Advanced Usage
+### Textbox
+User text input field.
 
 ```lua
--- Complex example with multiple components
-local combatTab = Window:CreateTab({Name = '⚔️ Combat'})
-local aimSection = combatTab:CreateSection({Name = 'Aim Assist'})
-
-aimSection:AddSlider({
-    Name = 'Smoothing',
-    Min = 1,
-    Max = 10,
-    Value = 5,
-    Callback = function(_, value)
-        AimController:SetSmoothness(value)
-    end
-})
-
-aimSection:AddDropdown({
-    Name = 'Target Priority',
-    Multi = true,
-    List = {'Head', 'Torso', 'Limbs'},
-    Callback = function(selection)
-        UpdateTargetPriorities(table.concat(selection, ', '))
+ControlsSection:AddTextbox({
+    Name = 'Player Name',
+    Flag = 'player_name',
+    Value = 'Default',     -- Initial text
+    Multiline = false,     -- Multi-line input
+    Callback = function(text)
+        print('Input changed:', text)
     end
 })
 ```
 
-## 📞 Support
+### Slider
+Numeric input with range constraints.
 
-For help, join our [Discord community](https://discord.gg/VzYTJ7Y) or create an [GitHub issue](https://github.com/username/repo/issues).
+```lua
+ControlsSection:AddSlider({
+    Name = 'Volume',
+    Flag = 'volume_level',
+    Value = 50,            -- Default value
+    Min = 0,               -- Minimum value
+    Max = 100,             -- Maximum value
+    Decimals = 0,          -- Decimal places
+    IllegalInput = false,  -- Allow manual input
+    Callback = function(isDragging, value)
+        if not isDragging then
+            print('Final value:', value)
+        end
+    end
+})
+```
 
-[![Discord Banner](https://discordapp.com/api/guilds/1234567890/widget.png?style=banner2)](https://discord.gg/VzYTJ7Y)
+### Button
+Trigger actions on click.
+
+```lua
+ControlsSection:AddButton({
+    Name = 'Save Settings',
+    Callback = function()
+        print('Settings saved!')
+    end
+})
+```
+
+### Keybind
+Custom keybinding input.
+
+```lua
+ControlsSection:AddKeybind({
+    Name = 'Menu Toggle',
+    Flag = 'menu_keybind',
+    Callback = function(isPressed)
+        if isPressed then
+            -- Toggle menu visibility
+        end
+    end
+})
+```
+
+### Dropdown
+Select from multiple options.
+
+```lua
+ControlsSection:AddDropdown({
+    Name = 'Weapon Select',
+    Flag = 'selected_weapon',
+    Multi = false,          -- Multi-select
+    List = {'Sword', 'Gun', 'Bow'},
+    Callback = function(selection)
+        print('Selected:', table.concat(selection, ', '))
+    end
+})
+```
+
+### SearchBox
+Searchable dropdown list.
+
+```lua
+ControlsSection:AddSearchBox({
+    Name = 'Item Search',
+    Flag = 'item_search',
+    List = {'Apple', 'Potion', 'Shield'}
+})
+```
+
+### Color Picker
+Color selection input.
+
+```lua
+ControlsSection:AddColorPicker({
+    Name = 'Team Color',
+    Value = Color3.new(1, 0, 0),  -- Default color
+    Callback = function(newColor)
+        print('Selected color:', newColor)
+    end
+})
+```
+
+## Utility Functions
+
+### Notify
+Display temporary notifications.
+
+```lua
+Library.Notify({
+    Text = 'Settings saved!', 
+    Duration = 3  -- Seconds
+})
+```
+
+### Prompt
+Create interactive dialogs.
+
+```lua
+Library.Prompt({
+    Name = 'Confirmation',
+    Text = 'Delete all data?',
+    Buttons = {
+        Yes = function()
+            print('Data deleted')
+        end,
+        No = function()
+            Library.Notify({Text = 'Cancelled'})
+        end
+    }
+})
+```
+
+## Theme Customization
+Customize UI appearance using JSON theme strings:
+
+```lua
+-- Example theme with main color
+local customTheme = '{"__Designer.Colors.main":"4dbed9"}'
+
+-- Apply theme when creating window
+Library:CreateWindow({
+    ...,
+    DefaultTheme = customTheme
+})
+```
 
 ---
 
-**Made with ❤️ by Pepsi** • [Report Bug](https://github.com/username/repo/issues) • [Request Feature](https://github.com/username/repo/issues)
+📘 **Need Help?** Join our [Discord Server](https://discord.gg/VzYTJ7Y)
