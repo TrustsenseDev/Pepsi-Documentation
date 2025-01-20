@@ -1,17 +1,13 @@
 # 🥤 Pepsi UI Library <sub><sup>v2.1.0</sup></sub>
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Downloads](https://img.shields.io/github/downloads/username/repo/total?color=green)
-![Discord](https://img.shields.io/discord/1234567890?label=Discord)
+![Discord](https://img.shields.io/discord/596154600495513620?label=Discord)
 
 A refreshing 🧊 Roblox UI framework with modern features and smooth interactions. Perfect for creating beautiful in-game interfaces!
-
-[![Pepsi UI Demo](https://via.placeholder.com/800x400.png?text=UI+Demo+GIF+Here)](https://youtu.be/demo-link)
 
 ## ✨ Features
 
 - 🎛️ **Fully Customizable** - Theme engine with JSON configuration
-- ⚡ **60 FPS Smooth** animations
 - 🔑 **Keybind Support** with multiple modes
 - 📱 **Responsive Layout** system
 - 📦 **Modular Components** - Use only what you need
